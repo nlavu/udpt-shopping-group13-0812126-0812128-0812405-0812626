@@ -75,11 +75,12 @@
 			});
 	 	//script show/hide form đăng nhập
 			$('#btnViewDangNhap').hover(
-				function(){				
-					$('.login-wrapper').css("display", "block");
+				function(){	
+					var pos_left = $(this).position().left;					
+					pos_left = pos_left - 140;							
+					$('.login-wrapper').css({'display':'block','left':pos_left});
 				},
-				function(){
-					
+				function(){					
 				}
 			);	
 			
@@ -91,10 +92,13 @@
 				$(this).css("display", "none");
 				}
 			);
+			
 		// script show/hide from tài khoản
 			$('#btnViewTaiKhoan').hover(
-				function(){				
-					$('.account-wrapper').css("display", "block");
+				function(){	
+					var pos_left = $(this).position().left;						
+					pos_left = pos_left - 90;							
+					$('.account-wrapper').css({'display':'block','left':pos_left});		
 				},
 				function(){
 					

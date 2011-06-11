@@ -137,7 +137,8 @@ a:hover, a:active, a:focus{
     	padding: 6px 0 0 6px;		
 		font-size: 11px;
 		text-align: left;
-		color: #135485;			
+		color: #135485;		
+		border: 1px solid #135485;	
 	}
 		.username-login
 		{
