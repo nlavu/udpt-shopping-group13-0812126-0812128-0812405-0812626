@@ -1,5 +1,31 @@
 <!--SCRIPT JWUERY-->
-     <script>	
+     <script>
+	 	//13/6/2011
+		//view giỏ hàng trong trang gian hàng
+		$('#navViewGioHang').click(function(){	
+			var state = $('#idCart_Shop').css('display');
+			//alert(state);
+				
+			if (state === 'none')
+			{
+				var pos_left = $(this).position().left;						
+				pos_left = pos_left - 180;
+				//alert(pos_left);	
+				var pos_top = $(this).position().top;
+				pos_top = 	pos_top + 15;
+				//alert(pos_top);						
+				$('#idCart_Shop').css({'display':'block','left':pos_left,'top':pos_top,'position': 'absolute'});		
+				$('#navViewGioHang > img').attr("src", "image/button_close.png");
+			}
+			else
+			{
+				//alert(state);
+				$('#idCart_Shop').css({'display':'none'});				
+				$('#navViewGioHang > img').attr("src", "image/button_open.png");	
+			}
+					
+		});	
+			
 	 	//12/6
 		// ẩn hiện tab tìm kiếm mở rộng sản phẩm
 		$('#idTimMoRongSP').click(function(){
@@ -32,7 +58,15 @@
 		});
 	 	// datetime picker - form đăng ký
 		$(function() {
-		$( "#dtpNgaySinh" ).datepicker({
+			$( "#dtpNgaySinh" ).datepicker({
+				changeMonth: true,
+				changeYear: true
+			});
+			$("#dtpNgayBD_SK" ).datepicker({
+				changeMonth: true,
+				changeYear: true
+			});
+			$("#dtpNgayKT_SK" ).datepicker({
 				changeMonth: true,
 				changeYear: true
 			});
@@ -82,11 +116,12 @@
 			});
 	 	//script show/hide form đăng nhập
 			$('#btnViewDangNhap').hover(
-				function(){				
-					$('.login-wrapper').css("display", "block");
+				function(){	
+					var pos_left = $(this).position().left;					
+					pos_left = pos_left - 140;							
+					$('.login-wrapper').css({'display':'block','left':pos_left});
 				},
-				function(){
-					
+				function(){					
 				}
 			);	
 			
@@ -100,8 +135,10 @@
 			);
 		// script show/hide from tài khoản
 			$('#btnViewTaiKhoan').hover(
-				function(){				
-					$('.account-wrapper').css("display", "block");
+				function(){	
+					var pos_left = $(this).position().left;						
+					pos_left = pos_left - 90;							
+					$('.account-wrapper').css({'display':'block','left':pos_left});		
 				},
 				function(){
 					

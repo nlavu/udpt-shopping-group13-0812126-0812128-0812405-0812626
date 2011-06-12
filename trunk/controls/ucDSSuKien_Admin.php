@@ -7,56 +7,55 @@
     </div>
     <!--end .paging -->
     <div class="button">
-    	<a href="dang_san_pham.php"> + Thêm sản phẩm</a>
+    	<a href="tao_su_kien.php"> + Tạo sự kiện</a>
     </div>
 </div>
 <div class="list-product">               	  
 <table width="100%" border="0" cellspacing="0" cellpadding="5">
           <tr>
-          	<th width="3%">&nbsp;</th>
+          	<th width="4%">&nbsp;</th>
             <th width="5%">STT</th>
-            <th width="5%">Mã</th>
-            <th width="15%">Tên sản phẩm</th>
-            <th width="14%">Đơn giá gốc </th>
-            <th width="13%">Đơn giá bán</th>
-            <th width="14%">Số lượng tồn</th>
-            <th width="15%">Loại sản phẩm</th>
-            <th width="10%">Cập nhật</th>
-            <th width="6%">Xóa</th>
+            <th width="23%" align="left">Tên sự kiện</th>
+            <th width="13%">Ngày bắt đầu</th>
+            <th width="13%">Ngày kết thúc</th>
+            <th width="13%">Ngày tạo</th>
+            <th width="11%">Xem chi tiết</th>
+            <th width="11%">Cập nhật</th>
+            <th width="7%">Xóa</th>
           </tr>
           <tr>
-          	<td>
-            	<form action="" method="get">
-                	<input name="chkSanPham" type="checkbox" value="" />
+            <td>
+                <form action="" method="get">
+                  <input name="chkSuKien" type="checkbox" value="" />
                 </form>
             </td>
             <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            <td align="left">&nbsp;</td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
             <td>
-            	<form action="" method="post">
-                	<input name="btnCapNhatSP" type="button" value="Cập nhật" />
-                </form>
-           	</td>
+            	<a href="chi_tiet_su_kien.php">Xem chi tiết</a>
+            </td>
             <td>
-            	<form action="" method="post">
-                	<input name="btnXoaSP" type="button" value="Xóa" />
+                <form action="" method="post">
+                  <input name="btnCapNhatSK" type="button" value="Cập nhật" />
                 </form>
             </td>
-          </tr>
+            <td>
+                <form action="" method="post">
+                  <input name="btnXoaSK" type="button" value="Xóa" />
+                </form>
+            </td>
+          </tr>          
           <tr>
           	<td>
             	<form action="" method="get">
-                	<input name="chkSanPham" type="checkbox" value="" />
+                	<input name="chkSuKien" type="checkbox" value="" />
                 </form>
             </td>
             <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            <td align="left">&nbsp;</td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>

@@ -8,8 +8,8 @@
    	  		<ul>            	
             	<li><a href="#"><span id="btnViewDangNhap">Đăng nhập</span></a></li>                
                 <li> <a href="dang_ky.php">Đăng ký</a></li>     
-                <li> <a href="#"><span id="btnViewTaiKhoan">Tài khoản</span></a></li>
-                <li><a href="#">Gian hàng</a></li>                
+                <li> <a href="trang_ca_nhan.php"><span id="btnViewTaiKhoan">Tài khoản</span></a></li>
+                <li><a href="ds_gian_hang.php">Gian hàng</a></li>                
                 <li> <a href="index.php">Trang chủ</a></li>
             </ul> 
             <!--end menu-->            
@@ -82,7 +82,7 @@
         <ul>
             <li><a href="gian_hang.php">Trang chủ</a></li>
             <li><a href="ds_san_pham.php">Sản phẩm</a></li>
-            <li><a href="gian_hang.php">Sự kiện</a></li>
+            <li><a href="ds_su_kien.php">Sự kiện</a></li>
           <li><a href="gian_hang.php">Về gian hàng</a></li>
             
         </ul>

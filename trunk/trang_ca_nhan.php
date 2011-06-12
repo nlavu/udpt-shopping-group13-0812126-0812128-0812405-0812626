@@ -21,9 +21,12 @@
 	<?php require_once('controls/ucTrangCaNhan.php') ?>
 	<!--end .left-->
     <div class="content-right">
-    	
-   	  <?php require_once('controls/ucCart.php') ?>
-      <!--end .box-wrapper-right-sidebar || giỏ hàng-->
+    	<div class="box-wrapper-right-sidebar">
+    		<div class="box-title-right-sidebar">Giỏ hàng</div>
+   	  		<?php require_once('controls/ucCart.php') ?>
+            <div class="seperator-item-box-right-sidebar"></div>
+        </div> 
+        <!--end .box-wrapper-right-sidebar || giỏ hàng-->
 	  <?php require_once('controls/ucEventSidebar.php') ?>
       <!--end .box-wrapper-right-sidebar-->
     </div>

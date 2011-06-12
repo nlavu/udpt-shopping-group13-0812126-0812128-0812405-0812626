@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Danh sách sản phẩm - ShoppingHere - NHÓM 13</title>
+<title>Danh sách sự kiện - ShoppingHere - Chủ gian hàng</title>
 <!--attach css-->
 <link href="css/style-shop.css" rel="stylesheet" type="text/css"  />
 <!--end attach css-->
@@ -16,35 +16,35 @@
 <body>
 <div class="wrapper">
   <?php require_once('controls/ucHeader_Shop.php') ?>
-  <!--end -->
+  <!--end .menu-shop-wrapper-->
   <div class="content">
     <div class="content-left">   	  
    	  	<div class="left">
         	<?php require_once('controls/ucMenu_Shop.php') ?>
-            <!--end .menu-shop-left  -->
+            <!--end .menu-shop-left-->
     	</div>
-      	<div class="right">
-        	<?php require_once('controls/ucNavigator_Shop.php') ?>
-            <!--end .navigator --> 
-   	    	<?php require_once('controls/ucTimKiemSP_Shop.php') ?>
-          	<!--end .search-product-wrapper-->
-            <?php require_once('controls/ucDSSanPham_Shop.php') ?>
-            <!--end .paging -->       	
-        </div>
-	 </div>
+        <!--end .left-->
+      	<div class="right">        	
+            <!--DS SỰ KIỆN--> 
+          	<?php require_once('controls/ucDSSuKien_Admin.php') ?>   
+            <!--end .product-detail-->
+      	</div>
+        <!--end .right-->
+    </div>
      <!--end .content-left-->
 	
     <!--// trong gian hàng bỏ content-right-->
   </div>
   <!--end .content-->
   <div class="footer">
-  		<?php require_once('controls/ucFooter_Shop.php') ?>
+  	<?php require_once('controls/ucFooter_Shop.php') ?>
   </div>
   <!--end .footer-->
 </div>
 <!--end .wrapper-->
 <!--SCRIPT JWUERY-->
   <?php require_once('controls/ucScriptJquery_Shop.php') ?>
+<!--END SCRIPT JWUERY-->
 <!--END SCRIPT JWUERY-->
 </body>
 </html>

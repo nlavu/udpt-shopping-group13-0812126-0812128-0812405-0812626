@@ -18,11 +18,11 @@
         	<ul>
             	<li><div class="title"><label>Gian Hàng</label></div></li>
                 <li><a href="tao_gian_hang.php">Tạo gian hàng</a></li>
-                <li><a href="#">Chỉnh sửa theme</a></li>
-            	<li><a href="#">Quản lý đơn hàng</a></li>
-            	<li><a href="#">Quản lý sản phẩm</a></li> 
-                <li><a href="#">Quản lý danh mục sản phẩm</a></li>
-                <li><a href="#">Tạo sự kiện</a></li>                                    
+                <li><a href="#">Theme</a></li>
+            	<li><a href="#">Đơn hàng</a></li>
+            	<li><a href="ds_san_pham_admin.php">Sản phẩm</a></li> 
+                <li><a href="#">Danh mục sản phẩm</a></li>
+                <li><a href="ds_su_kien_admin.php">Sự kiện</a></li>                                    
           </ul>
         </div>
         <!--end .menu-profile-->

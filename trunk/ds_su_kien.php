@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Danh sách sản phẩm - ShoppingHere - NHÓM 13</title>
+<title>Sự kiện - ShoppingHere - NHÓM 13</title>
 <!--attach css-->
 <link href="css/style-shop.css" rel="stylesheet" type="text/css"  />
 <!--end attach css-->
@@ -28,7 +28,7 @@
             <!--end .navigator --> 
    	    	<?php require_once('controls/ucTimKiemSP_Shop.php') ?>
           	<!--end .search-product-wrapper-->
-            <?php require_once('controls/ucDSSanPham_Shop.php') ?>
+            <?php require_once('controls/ucDSSuKien_Shop.php') ?>
             <!--end .paging -->       	
         </div>
 	 </div>
