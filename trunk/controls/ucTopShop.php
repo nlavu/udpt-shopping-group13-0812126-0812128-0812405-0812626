@@ -1,7 +1,7 @@
 <div class="top-shop">
       	<div class="top-shop-wrapper">
        	  <div class="top-shop-image">
-       	  	<a href="#"><img src="image/eBayMobile300x250_y.jpg" width="300" height="250" /></a>
+       	  	<a href="gian_hang.php"><img src="image/eBayMobile300x250_y.jpg" width="300" height="250" /></a>
           </div>
           <!--end .top-shop-image-->
           <div class="top-shop-info">

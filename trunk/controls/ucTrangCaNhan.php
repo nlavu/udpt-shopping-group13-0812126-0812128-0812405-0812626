@@ -17,7 +17,7 @@
         <div class="menu-profile">
         	<ul>
             	<li><div class="title"><label>Gian Hàng</label></div></li>
-                <li><a href="#">Tạo gian hàng</a></li>
+                <li><a href="tao_gian_hang.php">Tạo gian hàng</a></li>
                 <li><a href="#">Chỉnh sửa theme</a></li>
             	<li><a href="#">Quản lý đơn hàng</a></li>
             	<li><a href="#">Quản lý sản phẩm</a></li> 
