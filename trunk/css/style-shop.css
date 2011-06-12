@@ -934,11 +934,22 @@ input.style-blue {
 	font-weight: normal;
 	font-size: 12px;
 }
+	.text-color-normal-1 a{
+		color: #135485;
+		font-weight: normal;
+		font-size: 12px;
+	}
 .text-color-bold-1{
 	color: #135485;
 	font-weight: bold;
 	font-size: 12px;
 }
+
+	.text-color-bold-1 a{
+		color: #135485;
+		font-weight: bold;
+		font-size: 12px;
+	}
 
 /*sign UP*/
 .sign-up-wrapper{
@@ -1349,6 +1360,7 @@ input.style-blue {
 			padding: 5px;
 			color: #555;
 			border-top: 1px solid #F3F3F3;
+			min-height: 50px;
 		}
 
 /*thông tin chi tiết sản phẩm ở trang chi tiết sản phẩm*/
@@ -1407,9 +1419,10 @@ input.style-blue {
 	.product-detail .row .info .stars a{
 		padding-left: 5px;	
 		color: #135485;	
+		font-weight:bold;
 	}	
 	.product-detail .row .info .stars a:hover{
-		font-weight:bold;
+		
 	}			
 .product-detail .row .info .time-upload{
 	padding-left: 5px;	
@@ -1438,6 +1451,7 @@ input.style-blue {
 	width:788px;
 	display:block;
 	overflow:visible;
+	min-height: 70px;
 }
 	.product-detail .row .comment .comment-wrapper:hover{	
 		background: #F1F1F1;
@@ -1468,14 +1482,23 @@ input.style-blue {
 			width: 660px;
 			float:left;
 			font-weight:normal;
+			font-size:11px;
 		}
 
 		.product-detail .row .comment .comment-wrapper .content .primary-comment{
+			padding: 3px;
+			color: #000;
+			width: 660px;
+			float:left;
+			font-weight:normal;
+		}
+		.product-detail .row .comment .comment-wrapper .content .action{
 			padding: 3px;
 			color: #555;
 			width: 660px;
 			float:left;
 			font-weight:normal;
+			font-size:11px;
 		}
 
 	.product-detail .row .comment .comment-wrapper .button{
@@ -1486,3 +1509,9 @@ input.style-blue {
 		width: 30px;
 	}
 	
+/*chữ LIKE */
+.likes{
+	color:#135485;
+	font-weight: normal;
+	cursor:pointer;
+}

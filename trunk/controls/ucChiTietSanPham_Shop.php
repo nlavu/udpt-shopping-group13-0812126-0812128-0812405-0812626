@@ -12,8 +12,9 @@
             <div class="stars">                       		
                 3 sao | <a href="#">bình chọn</a>
             </div>
-            <div class="likes"><span id="">Like</span> (2)</div>
-            <div class="time-upload">Ngày đăng 11/6/2011</div>
+            <div class="likes"> 
+            	2 người thích <span style="cursor:pointer;" class="text-color-bold-1">Like</span></div>
+            <div class="time-upload">Đăng bởi <a href="trang_ca_nhan.php" >[username]</a> lúc 9:00 ngày 11/6/2011</div>
         </div>
         <!--end .info-->
         <div class="add-cart">
@@ -51,8 +52,16 @@
             <div class="comment-wrapper">                       	  	
                 <div class="avatar"><img src="users/tentaikhoan/daisy.jpg" width="1280" height="1024" /></div>
                 <div class="content">
-                     <div class="title-comment"><b>Tên user</b> bình luận lúc  11/6/2011</div>
+                     <div class="title-comment">
+                     	<span class="text-color-normal-1">
+                        	<a href="trang_ca_nhan.php">Tên user</a>
+                        </span> bình luận lúc 9:00  11/6/2011
+                     </div>
                      <div class="primary-comment">Content for  class "primary-content" Goes Here</div>
+                     <div class="action">
+                        3 người thích <span class="text-color-normal-1 likes">Like</span>
+                     </div>
+                     
                 </div>                            
                 <!--end .content-->
                 <div class="button">
@@ -63,8 +72,15 @@
             <div class="comment-wrapper">                       	  	
                 <div class="avatar"><img src="users/tentaikhoan/daisy.jpg" width="1280" height="1024" /></div>
                 <div class="content">
-                     <div class="title-comment"><b>Tên user</b> bình luận lúc  11/6/2011</div>
+                     <div class="title-comment">
+                     	<span class="text-color-normal-1">
+                        	<a href="trang_ca_nhan.php">Tên user</a>
+                        </span> bình luận lúc 9:00  11/6/2011
+                     </div>
                      <div class="primary-comment">Content for  class "primary-content" Goes Here</div>
+                     <div class="action">
+                        3 người thích <span class="text-color-normal-1 likes">Like</span>
+                     </div>
                 </div>                            
                 <!--end .content-->
                 <div class="button">
@@ -72,7 +88,30 @@
                 </div>
             </div>
             <!--end .comment-wrapper-->
+             <div class="comment-wrapper">                       	  	
+                <div class="avatar"><img src="users/tentaikhoan/daisy.jpg" width="1280" height="1024" /></div>
+                <div class="content">
+                    <div class="title-comment">
+                        <span class="text-color-normal-1">
+                            <a href="trang_ca_nhan.php">Tên user</a>
+                        </span>
+                    </div>
+                     <form action="" method="get" name="frmDangBinhLuan">
+                       <textarea name="txtNoiDungBinhLuan" cols="80" rows="5"></textarea><br />                       <input name="btnBinhLuan" type="submit" value="Bình luận"  />
+                     </form>
+                </div>                            
+                <!--end .content-->                           
+            </div>
+            <!--end .comment-wrapper || đăng bình luận-->
         </div>
+        <!--end .comment-->
+        <div class="paging">
+            <div class="item">                
+              <a href="#" class="item current">1</a> 
+              <a href="#" class="item">2</a>
+            </div>
+        </div>
+        <!--end .paging -->
   </div>
   <!--end row bình luận -->
 </div>
