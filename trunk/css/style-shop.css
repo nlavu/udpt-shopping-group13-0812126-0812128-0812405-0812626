@@ -1266,9 +1266,25 @@ input.style-blue {
 		
 		
 /*phân trang*/
+.toolbox{
+	float:left;
+	width: 798px;
+}
+.toolbox .button{
+	float:right;
+	width: 350px;
+	line-height: 18px;
+	color: #900;
+	text-align:right;
+}
+	.toolbox .button a{
+		line-height: 18px;
+		color: #D73022;
+		font-weight:bold;
+	}
 .paging{
 	float:left;
-	width: 788px;
+	width: 388px;
 	height: 18px;
 	padding: 2px 0px 2px 20px;
 	background: #FFF;
@@ -1515,3 +1531,72 @@ input.style-blue {
 	font-weight: normal;
 	cursor:pointer;
 }
+
+.up-product{	
+	/*padding: 5px;*/
+	float:left;
+	width: 798px;
+	border-top: 1px solid #135485;
+	margin: 0px 5px;
+	padding: 5px 0px; 
+}
+	.up-product .content{
+		float:left;
+		width: 788px;
+		padding: 0px 5px;
+	}
+	.up-product .content .separator{
+		width: 778px;
+		border-bottom: 1px solid #F3F3F3;
+		padding: 0px 5px;
+		float:left;
+	}
+	.up-product .content .row{
+		float:left;
+		padding: 3px 0px;
+		display:inline;
+		width: 778px;
+		text-align:center;
+	}
+	.up-product .content .row .leftcol{
+		float:left;
+		width:200px;
+		text-align: right;
+		color:#555;		
+		padding:5px;	
+	}
+	.up-product .content .row .rightcol{
+		float:none;
+		padding:5px;		
+		width:558px;
+		text-align: left;
+		color:#555;
+	}
+	
+.list-product{
+	width: 798px;
+	padding: 5px;
+}
+	.list-product table{
+		border-collapse: collapse;
+		background: #fff;
+		font-size: 11px;				
+	}
+	.list-product th
+	{			
+		border-bottom: 1px solid #ccc;
+		color: #000;	
+		background:-moz-linear-gradient(center top , #FFFFFF, #F9F9F9) repeat scroll 0 0 #F6F6F6;
+		padding: 3px;			
+	}
+	.list-product td
+	{			
+		border-bottom: 1px solid #ccc;
+		color: #666666;	
+		padding: 3px 3px;
+		text-align:center;			
+	}
+	.list-product tr:hover td
+	{
+		color: #000;
+	}

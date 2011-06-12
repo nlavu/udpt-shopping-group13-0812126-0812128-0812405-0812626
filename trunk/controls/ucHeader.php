@@ -49,7 +49,7 @@
                 	<div class="my-orders"><a href="trang_ca_nhan.php">Đơn hàng của tôi</a></div>
                 </div>
                 <div class="account-content-line">
-                	 <div class="my-shop"><a href="trang_ca_nhan.php">Gian hàng của tôi</a></div>
+                	 <div class="my-shop"><a href="gian_hang.php">Gian hàng của tôi</a></div>
                 </div>
                 <div class="account-content-line">
                 	<div class="logout"><a href="#">Đăng xuất</a></div>

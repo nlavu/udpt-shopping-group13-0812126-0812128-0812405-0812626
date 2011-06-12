@@ -45,13 +45,13 @@
             <div class="account-wrapper">
            	  <div class="account-content">
               	<div class="account-content-line">
-               	  <div class="profile-page"><a href="#">Trang cá nhân</a></div>
+               	  <div class="profile-page"><a href="trang_ca_nhan.php">Trang cá nhân</a></div>
                 </div>
               	<div class="account-content-line">
-                	<div class="my-orders"><a href="#">Đơn hàng của tôi</a></div>
+                	<div class="my-orders"><a href="trang_ca_nhan.php">Đơn hàng của tôi</a></div>
                 </div>
                 <div class="account-content-line">
-                	 <div class="my-shop"><a href="#">Gian hàng của tôi</a></div>
+                	 <div class="my-shop"><a href="gian_hang.php">Gian hàng của tôi</a></div>
                 </div>
                 <div class="account-content-line">
                 	<div class="logout"><a href="#">Đăng xuất</a></div>
