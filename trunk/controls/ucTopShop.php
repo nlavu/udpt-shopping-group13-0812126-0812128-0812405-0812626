@@ -31,7 +31,7 @@
             </div>
             <!--end .top-shop-info-line || subcribe-->     
         <div class="top-shop-info-line">            	
-           		<div class="view-shop"><a href="#">Xem chi tiết >></a></div>
+           		<div class="view-shop"><a href="gian_hang.php">Xem chi tiết >></a></div>
             </div>            
             <!--end .top-shop-info-line | xem chi tiết--> 
           </div>

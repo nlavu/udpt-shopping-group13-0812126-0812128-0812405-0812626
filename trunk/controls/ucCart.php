@@ -1,4 +1,4 @@
-    <div class="item-box-right-sidebar">
+    <div class="item-box-right-sidebar" style="z-index:100000;">
       <div class="content">
         <div class="cart-image"></div>
         <div class="cart-content">

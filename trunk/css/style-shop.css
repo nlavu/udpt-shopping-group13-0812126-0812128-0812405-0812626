@@ -321,6 +321,7 @@ input.style-blue {
 		width: 245px;
 		padding: 5px;
 		overflow:hidden;
+		background:#FFF;
 	}
 		.item-box-right-sidebar .title
 		{					
@@ -414,7 +415,7 @@ input.style-blue {
 	}
 	.top-shop-info
 	{
-		width: 385px;		
+		min-width: 385px;		
 		float: right;
 		padding-left: 15px;	
 	}
@@ -721,6 +722,7 @@ input.style-blue {
 	float:left;			
 	width: 235px;	
 	padding: 5px 5px 0px 5px;
+	background:#FFF;
 }
 /*bảng chi tiết giỏ hàng*/
 	#cart-detail-row

@@ -32,7 +32,7 @@
    	      <h2>TÊN TÀI KHOẢN</h2>
           <hr color="#F2F2F2" size="1px" />
           <br />
-<div class="profile-info">
+			<div class="profile-info">
           		<table width="100%" border="0" cellpadding="0" cellspacing="0" class="table-profile" id="tableThongTinTaiKhoan">
                     <tr>
                         <th colspan="2">Thông tin cá nhân</th>

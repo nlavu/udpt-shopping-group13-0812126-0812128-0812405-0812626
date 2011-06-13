@@ -7,7 +7,7 @@
             	<li><a href="index.php"><span id="btnViewDangNhap">Đăng nhập</span></a></li>                
                 <li> <a href="dang_ky.php">Đăng ký</a></li>     
                 <li> <a href="trang_ca_nhan.php"><span id="btnViewTaiKhoan">Tài khoản</span></a></li>
-                <li><a href="index.php">Gian hàng</a></li>                
+                <li><a href="ds_gian_hang.php">Gian hàng</a></li>                
                 <li> <a href="index.php">Trang chủ</a></li>
             </ul> 
             <!--end menu-->            
@@ -43,10 +43,10 @@
             <div class="account-wrapper">
            	  <div class="account-content">
               	<div class="account-content-line">
-               	  <div class="profile-page"><a href="trang_ca_nhan.php">Trang cá nhân</a></div>
+               	  <div class="profile-page"><a href="trang_ca_nhan.php?id=tcn">Trang cá nhân</a></div>
                 </div>
               	<div class="account-content-line">
-                	<div class="my-orders"><a href="trang_ca_nhan.php">Đơn hàng của tôi</a></div>
+                	<div class="my-orders"><a href="trang_ca_nhan.php?id=ddh">Đơn hàng của tôi</a></div>
                 </div>
                 <div class="account-content-line">
                 	 <div class="my-shop"><a href="gian_hang.php">Gian hàng của tôi</a></div>
@@ -67,7 +67,7 @@
                     <input type="button" id="search-btn" value="Search" class="ui-state-default ui-widget ui-corner-right" />
                 </label> 
                                            
-                <div id="advance-search"><a href="#">Tìm kiếm nâng cao </a></div>    
+                <div id="advance-search"><a href="tim_kiem.php">Tìm kiếm nâng cao </a></div>    
            	</form>
         	<!--end .frmSearch-->                	
       	</div>

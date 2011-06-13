@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Trang cá nhân - ShoppingHere - NHÓM 13</title>
+<title>Trang chủ - ShoppingHere - NHÓM 13</title>
 <!--attach css-->
 <link href="css/style-default.css" rel="stylesheet" type="text/css"  />
 <!--end attach css-->
@@ -14,12 +14,14 @@
 <!--end attach JQUERY-->
 </head>
 <body>
-<div class="wrapper" >
+<div class="wrapper">
   <?php require_once('controls/ucHeader.php')?>
   <!--end .header-->
   <div class="content">
-	<?php require_once('controls/ucTrangCaNhan.php') ?>
-	<!--end .left-->
+	<div class="content-left">
+   	  	<?php require_once('controls/ucDSGianHang.php') ?>      
+	</div>
+    <!--end .content-left-->
     <div class="content-right">
     	<div class="box-wrapper-right-sidebar">
     		<div class="box-title-right-sidebar">Giỏ hàng</div>
@@ -33,6 +35,6 @@
     <!--end .right-->
   </div>
   <!--end .content-->
-	<?php  require_once('controls/ucFooter.php') ?>
+  <?php require('controls/ucFooter.php') ?>
 </body>
 </html>
