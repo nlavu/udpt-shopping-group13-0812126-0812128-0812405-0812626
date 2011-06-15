@@ -1,4 +1,4 @@
-body {
+-upbody {
 	font-family:Tahoma, Geneva, sans-serif;
 	font-size:12px;
 	background: #FFF;
@@ -936,7 +936,7 @@ input.style-blue {
 }
 	
 .sign-up{
-	max-height: 900px;	
+	max-height: 950px;	
 }
 	.sign-up .title{
 		font-weight: bold;

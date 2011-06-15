@@ -1,7 +1,8 @@
 <div class="sign-up-wrapper">
    		<div class="sign-up">
        	  	<div class="title">Đăng ký tài khoản</div>
-          	<div class="content">
+            <form action="../addmember.php" method="post" onsubmit="return check_info_signUp();">
+           		<div class="content">
           		<div class="title" >1. Thông tin tài khoản</div>
            	  	<div class="sub-content">                	
                     <div class="row"> 
@@ -10,8 +11,8 @@
                         </div>
                         <!--end .leftcol-->
                   <div class="rightcol"> 										  
-                            <input name="txtusername" type="text" class="primary textbox" id="regusername" tabindex="1" value="" size="30" maxlength="16" autocomplete="off"> 
-                         
+                            <input name="txtusername" type="text" class="primary textbox" id="txtusername" tabindex="1" value="" size="30" maxlength="16" autocomplete="off"> 
+                         	 &nbsp;<span class="hint">Tài khoản từ 3 đến 20 ký tự và không có ký tự đặc biệt<span class="hint-pointer">&nbsp;&nbsp;&nbsp;</span></span>
                           	<div id="reg_verif_div" class="primary" style="display:none;"></div><br />  
                             Xin hãy điền tên mà bạn thích được hiển thị trên diễn đàn. 
                       </div> 
@@ -23,7 +24,8 @@
                         	<label for="password">Mật khẩu:</label> 
                         </div>
                       	<div class="rightcol">
-                        	<input name="txtpassword" type="password" class="textbox" id="password" tabindex="1" value="" size="30" maxlength="16"> 
+                        	<input name="txtpassword" type="password" class="textbox" id="password" tabindex="1" value="" size="30" maxlength="16">
+                            &nbsp;<span class="hint">Email từ 6 đến 80 ký tự <span class="hint-pointer">&nbsp;&nbsp;&nbsp;</span></span>
                         </div>
                     </div>
                     <!--end .row  mật khẩu-->
@@ -44,7 +46,7 @@
                         	<label for="email">Ðịa Chỉ Email:</label>
                         </div>
                         <div class="rightcol">
-                        	<input name="txtemail" type="text" class="textbox" id="email" tabindex="1" dir="ltr" value="" size="40" maxlength="50">                           
+                        	<input name="txtemail" type="text" class="textbox" id="email" tabindex="1" dir="ltr" value="" size="40" maxlength="50">                           &nbsp;<span class="hint">Email từ 6 đến 80 ký tự <span class="hint-pointer">&nbsp;&nbsp;&nbsp;</span></span>
                       	</div> 
                   	</div>
                     <!--end .row email-->
@@ -59,6 +61,30 @@
                       </div> 
                   	</div>
                     <!--end .row nhắc lại email-->
+                    <div class="row">
+                    	<div class="leftcol">
+                        	<label for="recaptcha_challenge_field">Hình bảo mật</label>
+                        </div>
+                        <div class="rightcol">
+                        	<table>
+                            	<tr>
+                                	<td>
+                                    	<img src="../capcha/CaptchaSecurityImages.php?width=100&height=40&characters=5" />
+                                    </td>
+                                    <td>
+                                    	<a href="#" onclick="re_capcha();"><img src="image/refresh_capcha.png" /></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                	<td>
+                                    	<input id="security_code" name="security_code" type="text" tabindex="1"/><br />
+                                    </td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <!--end .row capcha-->
                 </div>
                 <!--end .sub-content thông tin tài khoản-->
               <div class="title" >2. Thông tin cá nhân</div>
@@ -68,7 +94,7 @@
                         	<label>Họ và Tên:</label> 
                         </div>
                         <div class="rightcol">
-                        	<input name="fullname" type="text" id="regfullname" size="30"> 
+                        	<input name="fullname" type="text" id="regfullname" size="30" tabindex="1"> 
                             <div style="display:none;" class="primary" id="reg_verif_div"></div> 
                       </div> 
                   	</div>
@@ -92,7 +118,7 @@
                         	<label>Ngày Sinh:</label> 
                         </div>
                         <div class="rightcol">
-                        	<input name="datepicker" type="text" id="dtpNgaySinh" size="20">  
+                        	<input name="datepicker" type="text" id="dtpNgaySinh" size="20" tabindex="1">  
                             <div style="display:none;" class="primary" id="reg_verif_div"></div>
                       </div> 
                   	</div>
@@ -112,7 +138,7 @@
                         	<label for="avatar">Ảnh đại diện</label> 
                         </div>
                         <div class="rightcol">
-                       	  <input name="" type="file" />
+                       	  <input name="" type="file" size="40"/>
                       </div> 
                   	</div>
                     <!--end .row ảnh đại diện-->
@@ -121,12 +147,12 @@
               <div class="title" >Nội quy website</div>
            	    <div class="sub-content">
                 	<strong>Quy định Website ShoppingHere</strong><br /><br />
-					Xin hãy dành vài phút để đọc các nội quy và các quy định của diễn đàn.<br /> 					
+					Xin hãy dành vài phút để đọc các nội quy và các quy định của Website.<br /> 					
                     <b>
                         <font color="#FF0000">
-                        1) Đọc kỹ <a target="_blank" href="#">"Điều khoản và Quy Định của Diễn Đàn"</a>.<br>
-                        2) Dùng Tiếng Việt có dấu khi sử dụng diễn đàn.<br>
-                        3) Tài khoản của bạn sẽ bị xóa nếu bạn không viết bài nào và không đăng nhập trong vòng 365 ngày kể từ ngày đăng ký.<br /><br />
+                        1) Đọc kỹ <a target="_blank" href="#">"Điều khoản và Quy Định của Website"</a>.<br>
+                        2) Dùng Tiếng Việt có dấu khi sử dụng Website.<br>
+                        3) Tài khoản của bạn sẽ bị xóa nếu bạn vi phạm các nguyên tắc bán hàng.<br /><br />
                         </font>
                     </b>
 					Xin nhớ là chúng tôi không chịu trách nhiệm về bất kỳ bài viết nào đăng trong diễn đàn. Chúng tôi không đảm bảo sự chính xác, hoàn hảo hoặc hữu ích của bất kỳ bài viết nào, và không chịu trách nhiệm về nội dung của bất kỳ bài viết nào. <br /><br />
@@ -141,5 +167,7 @@
           	</div>
             <!--end .action-->
    		</div>
+            </form>
+          	
         <!--end .sign-up-->
       </div>

@@ -40,6 +40,9 @@
 						// chưa login
 						echo "	<li><a href='index.php'><span id='btnViewDangNhap'>Đăng nhập</span></a></li>                
                 				<li> <a href='dang_ky.php'>Đăng ký</a></li>
+								<li><a href='ds_gian_hang.php'>Gian hàng</a></li>                
+								<li> <a href='index.php'>Trang chủ</a></li>
+								
 								";
 						//header('Location:index.php');
 					}
@@ -58,14 +61,14 @@
             <!--end menu-->            
             <div class="login-wrapper">
            	  <div class="login-content" >
-              		<form action="./form_SignIn.php" method="post"> 
-               	  <div class="username-login">                   							
+              	 <form action="./form_SignIn.php" method="post" onsubmit="return check_info_signIn();"> 
+               	  <div class="username-login">
                             <label for="navbar_username">Thành Viên:</label><br />
-                            <input name="txtUserName" id="navbar_username" size="16" type="text" class="ui-widget-content"> 
+                            <input name="txtUserName" id="txtUserName" size="16" type="text" class="ui-widget-content"> 
                           </div>
                   <div class="pass-login">
                             <label for="navbar_password">Mật khẩu:</label><br />
-                            <input name="txtPassword" id="navbar_password" size="16" type="password" class="ui-widget-content">
+                            <input name="txtPassword" id="txtPassword" size="16" type="password" class="ui-widget-content">
                          </div>                            
                   <div class="remember">
                             <label for="cb_cookieuser_navbar">
@@ -97,7 +100,7 @@
                 	 <div class="my-shop"><a href="gian_hang.php">Gian hàng của tôi</a></div>
                 </div>
                 <div class="account-content-line">
-                	<div class="logout"><a href="#">Đăng xuất</a></div>
+                	<div class="logout"><a href="form_SignOut.php">Đăng xuất</a></div>
                 </div>
                 
            	  </div>

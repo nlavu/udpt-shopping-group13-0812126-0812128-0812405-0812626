@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Trang chủ - ShoppingHere - NHÓM 13</title>
+<title>Trang chủ - ShoppingHere</title>
 <!--attach css-->
 <link href="css/style-default.css" rel="stylesheet" type="text/css"  />
 <!--end attach css-->
@@ -11,6 +11,7 @@
 <script type="text/javascript" src="jquery-ui-1.8.13.custom/js/jquery-ui-1.8.13.custom.min.js"></script>
 
 <script src="jquery-ui-1.8.13.custom/reflection.js" ></script>
+<script src="javascript/script.js" type="text/javascript" ></script>
 <!--end attach JQUERY-->
 </head>
 <body>
