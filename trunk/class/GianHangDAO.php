@@ -211,17 +211,18 @@ class GianHangDAO extends ConnectDB {
 			if (!ConnectDB::OpenConnection())
 			return FALSE;
 			
-			$strSQL = mysql_query("SELECT gh.MaGianHang, gh.TenGianHang
-									FROM nguoi_dung nd, gian_hang gh
-									WHERE nd.MaGianHang = gh.MaGianHang and gh.MaNguoiDung = nd.MaNguoiDung and gh.MaGianHang = $maGianHang
-									");
-			if ($strSQL== false)
+			$strSQL = "SELECT gh.MaGianHang, gh.TenGianHang
+					FROM gian_hang gh
+					WHERE gh.MaGianHang = $maGianHang AND gh.DaXoa = 0;";
+			//echo $strSQL;
+			
+			$result = mysql_query($strSQL, ConnectDB::$mLink);
+			if (!$result || mysql_num_rows($result) <= 0)
 			{
-				$gianHangDto = new GianHangDTO();
-				return $gianHangDto;
+				return null;
 			}
 			
-			while ($row = mysql_fetch_array($strSQL))
+			while ($row = mysql_fetch_array($result))
 			{				
 				$gianHangDto->MaGianHang = $row["MaGianHang"];	
 				$gianHangDto->TenGianHang = $row["TenGianHang"];			
@@ -230,7 +231,7 @@ class GianHangDAO extends ConnectDB {
 			ConnectDB::CloseConnection();
 			
 		} catch (Exception $e) {
-			$gianHangDto = new GianHangDTO();
+			$gianHangDto = null;
 		}
 		return $gianHangDto;
 	}

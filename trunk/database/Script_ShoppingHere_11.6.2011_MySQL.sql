@@ -378,5 +378,25 @@ ALTER TABLE `gian_hang`
 ADD COLUMN `Slogan`  varchar(200) NOT NULL AFTER `LuotXem`,
 ADD COLUMN `DiaChi`  varchar(100) NOT NULL AFTER `Slogan`,
 ADD COLUMN `ThongTin`  text NULL AFTER `DiaChi`;
+--Thu Hà 15.6.2011
+ALTER TABLE `san_pham`
+CHANGE COLUMN `SoLuongTon` `SoLuong`  int(11) NOT NULL AFTER `TenSanPham`,
+MODIFY COLUMN `NgayXoa`  datetime NULL DEFAULT NULL AFTER `NguoiXoa`;
+
+CREATE TABLE `Likes` (
+`MaDoiTuong`  int NOT NULL ,
+`MaNguoiDung`  int NOT NULL ,
+`SoSao`  int NOT NULL ,
+PRIMARY KEY (`MaDoiTuong`, `MaNguoiDung`),
+CONSTRAINT `FK_LIKE_DoiTuong` FOREIGN KEY (`MaDoiTuong`) REFERENCES `doi_tuong` (`MaDoiTuong`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+CONSTRAINT `FK_LIKE_NguoiDung` FOREIGN KEY (`MaNguoiDung`) REFERENCES `nguoi_dung` (`MaNguoiDung`) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+--Thu Hà 16.6.2011
+ALTER TABLE `nguoi_dung`
+MODIFY COLUMN `AnhDaiDien`  varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL AFTER `TinhTrang`;
+
+
+
+
 
 

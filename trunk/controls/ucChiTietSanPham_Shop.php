@@ -27,7 +27,7 @@
                         <label>Thành tiền: <span class="new-price"> 1000 VND </span></label>
                     </div>
                     <div class="line">
-                        <input name="btnThemVaoGioHang" type="submit" class="button ui-state-default ui-button-text-icon-primary ui-button" value="Thêm vào giỏ hàng" />                                   
+                        <input name="btnThemVaoGioHang" type="submit" class="button ui-state-default ui-button-text-icon-primary" value="Thêm vào giỏ hàng" />                                   
                     </div>
                 </form>
         </div>

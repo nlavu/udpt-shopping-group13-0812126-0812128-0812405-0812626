@@ -21,8 +21,9 @@ define('USER_AGENT_SALT', 'PosterStore');
 
 /**
  * One of these sessions can last 60 minutes
+ * tính theo đơn vị giây
  */
-ini_set('session.gc_maxlifetime', 3600);
+ini_set('session.gc_maxlifetime', 60);
 session_start();
 
 /**
@@ -65,10 +66,24 @@ else
   }
 }
 
-//$_SESSION['IsLogin'] = 1;
+if (!isset($_SESSION['IsLogin']))
+{
+	$_SESSION['IsLogin'] = 0;
+}
+if (!isset($_SESSION['IdUser']))
+{
+	$_SESSION['IdUser'] = 0;
+}
+if (!isset($_SESSION['UserName']))
+{
+	$_SESSION['UserName'] = "Khách";
+}
 
-//$_SESSION['UserName'] = 'ThuHa';
-
+if (!isset($_SESSION['Authentication']))
+{
+	$_SESSION['Authentication'] = 'Khach';
+	// 1: người mua, 2: người bán, 3: admin;
+}
 if (!isset($_SESSION['GioHang']))
 {
 	$giohang = array();
@@ -87,6 +102,9 @@ if (!isset($_SESSION['LuotXemSanPham']))
 	$sanpham = array();
 	$_SESSION['LuotXemSanPham'] = $sanpham;
 }
+
+//hủy session
+//session_destroy();
 	
 ?>
 

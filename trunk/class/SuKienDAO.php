@@ -1,6 +1,7 @@
 ﻿<?php
 
 require_once ('ConnectDB.php');
+require_once ('SuKienDTO.php');
 
 class SuKienDAO extends ConnectDB {
 	function SuKienDAO(){
@@ -8,7 +9,7 @@ class SuKienDAO extends ConnectDB {
 	}
 	
 /**
-	 * ThÃªm sá»± kiá»‡n
+	 * Thêm sự kiện
 	 * Enter description here ...
 	 */
 	public static function ThemSuKien($suKienDto)
@@ -18,16 +19,18 @@ class SuKienDAO extends ConnectDB {
 			if (!ConnectDB::OpenConnection())
 			return FALSE;
 			
-			$strSQL = sprintf("INSERT INTO su_kien (MaSuKien, MaGianHang, TenSuKien, HinhAnh, NoiDungSuKien,
-									NgayTao, NgayBatDau, NgayKetThuc)
-								VALUES($suKienDto->MaSuKien,
-										$suKienDto->MaGianHang,
-										$suKienDto->TenSuKien,
-										$suKienDto->HinhAnh,
-										$suKienDto->NoiDungSuKien,
-										$suKienDto->NgayTao,
-										$suKienDto->NgayBatDau,
-										$suKienDto->NgayKetThuc);");
+			$strSQL = "INSERT INTO su_kien (MaSuKien, MaGianHang, TenSuKien, HinhAnh, NoiDungSuKien,NgayTao, NgayBatDau, NgayKetThuc, NgayCapNhat, NguoiCapNhat, NgayXoa, NguoiXoa,DaXoa)
+								VALUES('$suKienDto->MaSuKien',
+										'$suKienDto->MaGianHang',
+										N'$suKienDto->TenSuKien',
+										'$suKienDto->HinhAnh',
+										N'$suKienDto->NoiDungSuKien',
+										'$suKienDto->NgayTao',
+										'$suKienDto->NgayBatDau',
+										'$suKienDto->NgayKetThuc',
+										NULL, NULL, NULL, NULL,
+										'$suKienDto->DaXoa');";
+			//echo $strSQL;
 			$result = mysql_query($strSQL, ConnectDB::$mLink);
 			
 			ConnectDB::CloseConnection();
@@ -39,7 +42,7 @@ class SuKienDAO extends ConnectDB {
 	}
 	
 /**
-	 * Cáº­p nháº­t thÃ´ng tin sá»± kiá»‡n
+	 * Cập nhật sự kiện
 	 * Enter description here ...
 	 */
 	public static function CapNhatThongTinSuKien($maSuKien, $tenSuKien, $hinhAnh, $ngayBatDau, $ngayKetThuc, $ngayCapNhat, $nguoiCapNhat)
@@ -49,9 +52,9 @@ class SuKienDAO extends ConnectDB {
 			if (!ConnectDB::OpenConnection())
 			return FALSE;
 			
-			$strSQL = sprintf("UPDATE su_kien  as sk set sk.TenSuKien = $tenSuKien, sk.HinhAnh = $hinhAnh,
+			$strSQL = "UPDATE su_kien  as sk SET sk.TenSuKien = $tenSuKien, sk.HinhAnh = $hinhAnh,
 									sk.NgayBatDau = $ngayBatDau, sk.NgayKetThuc= $ngayKetThuc, sk.NgayCapNhat = $ngayCapNhat, sk.NguoiCapNhat = NguoiCapNhat
-								WHERE sk.MaSuKien = $maSuKien;");
+								WHERE sk.MaSuKien = $maSuKien;";
 			$result = mysql_query($strSQL, ConnectDB::$mLink);
 			
 			ConnectDB::CloseConnection();
@@ -63,7 +66,7 @@ class SuKienDAO extends ConnectDB {
 	}
 	
 	/**
-	 * XÃ³a sá»± kiá»‡n
+	 * Xóa xự kiện
 	 * Enter description here ...
 	 */
 	public static function XoaSuKien($maSuKien, $ngayXoa, $maNguoiDung)
@@ -73,10 +76,10 @@ class SuKienDAO extends ConnectDB {
 			if (!ConnectDB::OpenConnection())
 			return FALSE;
 			
-			$strSQL = sprintf("UPDATE su_kien as sk set sk.DaXoa = 1, sk.NgayXoa = $ngayXoa, sk.NguoiXoa = $maNguoiDung
-								where sk.MaSuKien = $maSuKien;");
+			$strSQL = "UPDATE su_kien as sk set sk.DaXoa = 1, sk.NgayXoa = $ngayXoa, sk.NguoiXoa = $maNguoiDung where sk.MaSuKien = $maSuKien;";
 			$result = mysql_query($strSQL, ConnectDB::$mLink);
 			
+			//echo $strSQL;
 			ConnectDB::CloseConnection();
 			
 		} catch (Exception $e) {
@@ -86,9 +89,8 @@ class SuKienDAO extends ConnectDB {
 	}
 	
 	/**
-	 * Láº¥y danh sÃ¡ch sá»± kiá»‡n
-	 * ChÆ°a sá»­a thá»© tá»± param
-	 * @param unknown_type $nguoidungDto
+	 * Lấy ds sự kiện
+	 * 
 	 */
 	public  static  function LayDanhSachSuKien()
 	{
@@ -97,7 +99,7 @@ class SuKienDAO extends ConnectDB {
 			if (!ConnectDB::OpenConnection())
 				return false;
 				
-			$strSQL = sprintf("select * fron Su_Kien");
+			$strSQL = "select * from Su_Kien";
 			$result = mysql_query($strSQL, ConnectDB::$mLink);
 			if(!$result)
 				$lstSuKien = array();
@@ -119,7 +121,7 @@ class SuKienDAO extends ConnectDB {
 				$suKienDto->DaXoa = $row["DaXoa"];
 				
 				
-				array_push($lstSuKien, $sanPhamDto);		
+				array_push($lstSuKien, $suKienDto);		
 			}
 			ConnectDB::CloseConnection();				
 			
@@ -130,21 +132,29 @@ class SuKienDAO extends ConnectDB {
 	}
 	
 	/**
-	 * Láº¥y sá»± kiá»‡n theo mÃ£ sá»± kiá»‡n
+	 * Lay su kien theo ma su kien
 	 * 
 	 * @param unknown_type $nguoidungDto
 	 */
-	public  static  function LayDanhSachSuKienTheoMaSuKien($maSuKien)
+	public  static  function LaySuKienTheoMaSuKien($maSuKien)
 	{
 		$suKienDto = new SuKienDTO();
 		try {
 			if (!ConnectDB::OpenConnection())
 				return;
 				
-			$strSQL = sprintf("select * from Su_Kien sk where sk.MaSuKien = $maSuKien);");
+			$strSQL = "select * from Su_Kien sk where sk.MaSuKien = $maSuKien AND sk.DaXoa = 0;";
+			//echo $strSQL;
+			
 			$result = mysql_query($strSQL, ConnectDB::$mLink);
 			if(!$result)
-				$suKienDto = new SuKienDTO();
+			{
+				return null;
+			}
+			if (mysql_num_rows($result) <= 0)
+			{
+				return null;
+			}
 			while ($row = mysql_fetch_array($result) )
 			{
 				
@@ -160,22 +170,19 @@ class SuKienDAO extends ConnectDB {
 				$suKienDto->NguoiCapNhat = $row["NguoiCapNhat"];
 				$suKienDto->NgayXoa = $row["NgayXoa"];
 				$suKienDto->NguoiXoa = $row["NguoiXoa"];
-				$suKienDto->DaXoa = $row["DaXoa"];
-				
-				
-				array_push($lstSuKien, $sanPhamDto);		
+				$suKienDto->DaXoa = $row["DaXoa"];				
+					
 			}
 			ConnectDB::CloseConnection();				
 			
 		} catch (Exception $e) {
-			$lstSuKien = array();
+			$suKienDto = null;
 		}
-		return $lstSuKien;
+		return $suKienDto;
 	}
 	
 	/**
-	 * Láº¥y danh sÃ¡ch sá»± kiá»‡n theo gian hÃ ng
-	 * ChÆ°a sá»­a thá»© tá»± param
+	 * Lấy danh sách sự kiện theo gian hàng
 	 * @param unknown_type $nguoidungDto
 	 */
 	public  static  function LayDanhSachSuKienTheoGianHang($maGianHang)
@@ -185,7 +192,7 @@ class SuKienDAO extends ConnectDB {
 			if (!ConnectDB::OpenConnection())
 				return false;
 				
-			$strSQL = sprintf("select * from Su_Kien sk where sk.MaGianHang = $maGianHang;");
+			$strSQL = "select * from Su_Kien sk where sk.MaGianHang = $maGianHang  ORDER BY sk.NgayBatDau DESC;";
 			$result = mysql_query($strSQL, ConnectDB::$mLink);
 			if(!$result)
 				$lstSuKien = array();
@@ -207,7 +214,7 @@ class SuKienDAO extends ConnectDB {
 				$suKienDto->DaXoa = $row["DaXoa"];
 				
 				
-				array_push($lstSuKien, $sanPhamDto);		
+				array_push($lstSuKien, $suKienDto);		
 			}
 			ConnectDB::CloseConnection();				
 			
@@ -218,9 +225,7 @@ class SuKienDAO extends ConnectDB {
 	}
 	
 	/**
-	 * Láº¥y danh sÃ¡ch sá»± kiá»‡n theo tÃªn sá»± kiá»‡n
-	 * ChÆ°a sá»­a thá»© tá»± param
-	 * @param unknown_type $nguoidungDto
+	 * Lấy ds sự kiện theo tên sự kiện
 	 */
 	public  static  function LayDanhSachSuKienTheoTenSuKien($tenSuKien)
 	{
@@ -229,7 +234,7 @@ class SuKienDAO extends ConnectDB {
 			if (!ConnectDB::OpenConnection())
 				return false;
 				
-			$strSQL = sprintf("select * from Su_Kien sk where sk.TenSuKien like $tenSuKien;");
+			$strSQL = "select * from Su_Kien sk where sk.TenSuKien like $tenSuKien;";
 			$result = mysql_query($strSQL, ConnectDB::$mLink);
 			if(!$result)
 				$lstSuKien = array();
@@ -262,9 +267,7 @@ class SuKienDAO extends ConnectDB {
 	}
 	
 /**
-	 * Láº¥y danh sÃ¡ch sá»± kiá»‡n tromg khoáº£ng thá»�i gian
-	 * ChÆ°a sá»­a thá»© tá»± param
-	 * @param unknown_type $nguoidungDto
+	 * Lấy ds sự kiện trong khoảng thời gian
 	 */
 	public  static  function LayDanhSachSuKienTrongKhoangThoiGian($thoiGianBD, $thoiGianKT)
 	{
@@ -273,7 +276,7 @@ class SuKienDAO extends ConnectDB {
 			if (!ConnectDB::OpenConnection())
 				return false;
 				
-			$strSQL = sprintf("SELECT * FROM su_kien WHERE DATEDIFF(su_kien.NgayBatDau,$thoiGianBD)<=0 and DATEDIFF(su_kien.NgayKetThuc,$thoiGianKT) >=0;");
+			$strSQL = "SELECT * FROM su_kien WHERE DATEDIFF(su_kien.NgayBatDau,$thoiGianBD)<=0 and DATEDIFF(su_kien.NgayKetThuc,$thoiGianKT) >=0;";
 			$result = mysql_query($strSQL, ConnectDB::$mLink);
 			if(!$result)
 				$lstSuKien = array();

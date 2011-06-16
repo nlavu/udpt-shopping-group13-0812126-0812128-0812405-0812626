@@ -4,7 +4,6 @@
   	<p>&nbsp;</p>
   </div>
   <!--end .footer-->
-</div>
-<!--end .wrapper-->
+<script src="javascript/script_Jquery.js">
+</script>
 <!--SCRIPT JWUERY-->
-<?php require_once('ucScriptJquery_Shop.php') ?>

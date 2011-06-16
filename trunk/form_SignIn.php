@@ -1,3 +1,4 @@
+<?php require_once 'session.inc';?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -17,8 +18,9 @@
 </head>
 <body>
 <?php
-	session_start(); // bắt đầu 1 phiên làm việc
+
 	// lấy username và password:
+	require_once('class/NguoiDungDAO.php');
 	$username = $_POST["txtUserName"];
 	$password = $_POST["txtPassword"];
 	
@@ -30,29 +32,27 @@
 		
 		// mã hóa password = md5
 		$password = md5($password);
-		$check_username = mysql_query("select UserName from nguoi_dung where UserName = '$username'");
-		$rows = mysql_fetch_array($check_username,MYSQL_NUM);
-		$record = $rows[0];
-		if(!$record)
+		$check_user_name = NguoiDungDAO::LayThongTinNguoiDungTheoTenTaiKhoan($username);
+		if (is_null($check_user_name))		
 		{
 			echo "<script>alert('Tên đăng nhập này chưa tồn tại!');</script>";
 			//echo "<meta http-equiv='refresh' content='3;url=index.php'/>";
-			echo "<script>location.href = 'index.php';</script>";
+			//echo "<script>location.href = 'index.php';\</script\>";
 		}
 		else
 		{
-			$result = mysql_query("select count(*) from nguoi_dung where UserName = '$username' and MatKhau = '$password'");
-			$rows = mysql_fetch_array($result, MYSQL_NUM);
-			$record = $rows[0];
-			if($record == 1)
+			$result = NguoiDungDAO::KiemTraDangNhap($username, $password);
+			if($result)
 			{
-				$loaind = mysql_query("select MaLoaiND from nguoi_dung where UserName = '$username'");
-				$rows = mysql_fetch_array($loaind);
-				$maLoaiND = $rows["MaLoaiND"];
+				$nguoiDungDto = NguoiDungDAO::LayThongTinNguoiDungTheoTenTaiKhoan($username);				
 				// set session:
-				$_SESSION['db_is_logged_in'] = true;										
+				$_SESSION['IsLogin'] = true;
+				$_SESSION['IdUser'] = $nguoiDungDto->MaNguoiDung;
+				$_SESSION['UserName'] = $nguoiDungDto->UserName;	
+				$_SESSION['Authentication']	= $nguoiDungDto->MaLoaiND;	
+									
 				// set cookies:
-				setcookie('UserCookies',$username,time() + 3600);
+				//setcookie('UserCookies',$username,time() + 3600);
 				$response = "								
 					<div class='standard_error'>
 						<form class='block vbform' method='post' action='#' name='postvarform'>
@@ -72,7 +72,7 @@
 							";
 							
 				//echo "<p align='center'  style='font:arial; color:#000; font-size:14px;'>Đăng nhập thành công! Đang chuyển hướng về trang chủ</p>";
-				if($maLoaiND==1)
+				if($nguoiDungDto->MaLoaiND == 3)
 				{
 					//header('Location: admin.php');
 					echo $response;
@@ -82,16 +82,16 @@
 				{
 					//header('Location: index.php');
 					echo $response;
-					echo "<script>location.href = 'index.php';</script>";
-					//echo "<meta http-equiv='refresh' content='3;url=index.php'/>";
+					echo "<script>location.href = 'index.php';\</script\>";
+					echo "<meta http-equiv='refresh' content='3;url=index.php'/>";
 				}
 				
 			}
 			else
 			{
-				echo "<script>alert('Sai Username hay Password, Đăng nhập không thành công! Quay về trang chủ');</script>";
-				//echo "<meta http-equiv='refresh' content='3;url=index.php'/>";
-				echo "<script>location.href = 'index.php';</script>";
+				echo "<script>alert('Sai Username hay Password, Đăng nhập không thành công! Quay về trang chủ');\</script\>";
+				echo "<meta http-equiv='refresh' content='3;url=index.php'/>";
+				echo "<script>location.href = 'index.php';\</script\>";
 			}
 		}									
 						

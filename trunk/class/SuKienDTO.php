@@ -25,8 +25,4 @@ class SuKienDTO{
 	
 
 }
-
-class SuKienDAO extends ConnectDB {
-
-}
 ?>

@@ -1,4 +1,4 @@
-<div class="header">
+<div class="header-shop">
 	<div class="header-left">
     	<a href="index.html">Shopping HERE</a>
     </div>
@@ -66,13 +66,13 @@
     <!--end .header-right-->
   </div>
   <!--end .header-->
-  <div class="header-shop">
+  <div class="banner-shop">
   	<div class="back-ground">
     	banner của gian hàng
    	  <img src="#" />
     </div>
   </div>
-  <!--end .header-shop-->
+  <!--end .banner-shop-->
   <div class="slogan-shop">
   	<div class="content ui-corner-all">Content for  class "content" Goes Here</div>
   </div>
@@ -92,7 +92,7 @@
      <div class="menu-search ui-corner-all">
    	   <div class="content">
        		<form action="" method="get" name="frmSearchShop">
-            	<input name="txtSearchShop" type="text" id="search-input-shop" value="Tìm kiếm trong gian hàng ..." />
+            	<input name="txtSearchShop" type="text" id="search-input-shop" title="*Tìm kiếm trong gian hàng ..." />
                 <input name="btnSearchShop" type="submit" value="" id="search-btn-shop" class="ui-state-default ui-widget ui-corner-right" />
             </form>
        </div>
@@ -100,3 +100,4 @@
      <!--end .menu-search-->
   </div>
   <!--end .menu-shop-wrapper-->
+

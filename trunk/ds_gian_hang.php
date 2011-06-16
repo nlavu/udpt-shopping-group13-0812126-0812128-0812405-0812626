@@ -1,8 +1,9 @@
+<?php require_once 'session.inc';?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Trang chủ - ShoppingHere - NHÓM 13</title>
+<title>Danh sách gian hàng - ShoppingHere - NHÓM 13</title>
 <!--attach css-->
 <link href="css/style-default.css" rel="stylesheet" type="text/css"  />
 <!--end attach css-->
@@ -35,6 +36,9 @@
     <!--end .right-->
   </div>
   <!--end .content-->
-  <?php require('controls/ucFooter.php') ?>
+  <?php require_once('controls/ucFooter.php')?>
+  <!--end .footer-->
+</div>
+<!--end .wrapper-->
 </body>
 </html>

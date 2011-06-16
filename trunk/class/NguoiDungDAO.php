@@ -28,7 +28,7 @@ class NguoiDungDAO extends ConnectDB {
 						$nguoidungDto->MaNguoiDung,
 						$nguoidungDto->MaLoaiND,
 						$nguoidungDto->MaGianHang,
-						$nguoidungDto->Username,
+						$nguoidungDto->UserName,
 						$nguoidungDto->HoTen,
 						$nguoidungDto->NgaySinh,
 						$nguoidungDto->GioiTinh,
@@ -44,10 +44,10 @@ class NguoiDungDAO extends ConnectDB {
 				values ('$nguoidungDto->MaNguoiDung',
 						'$nguoidungDto->MaLoaiND',
 						'$nguoidungDto->MaGianHang',
-						'$nguoidungDto->Username',
+						'$nguoidungDto->UserName',
 						N'$nguoidungDto->HoTen',
 						'$nguoidungDto->NgaySinh',
-						'$nguoidungDto->GioiTinh',
+						$nguoidungDto->GioiTinh,
 						'$nguoidungDto->DiaChi',
 						'$nguoidungDto->MatKhau',
 						'$nguoidungDto->Email',
@@ -78,7 +78,7 @@ class NguoiDungDAO extends ConnectDB {
 						$nguoidungDto->MaNguoiDung,
 						$nguoidungDto->MaLoaiND,
 						$nguoidungDto->MaGianHang,
-						$nguoidungDto->Username,
+						$nguoidungDto->UserName,
 						$nguoidungDto->HoTen,
 						$nguoidungDto->NgaySinh,
 						$nguoidungDto->GioiTinh,
@@ -113,7 +113,7 @@ class NguoiDungDAO extends ConnectDB {
 						$nguoidungDto->MaNguoiDung,
 						$nguoidungDto->MaLoaiND,
 						$nguoidungDto->MaGianHang,
-						$nguoidungDto->Username,
+						$nguoidungDto->UserName,
 						$nguoidungDto->HoTen,
 						$nguoidungDto->NgaySinh,
 						$nguoidungDto->GioiTinh,
@@ -149,7 +149,7 @@ class NguoiDungDAO extends ConnectDB {
 						$nguoidungDto->MaNguoiDung,
 						$nguoidungDto->MaLoaiND,
 						$nguoidungDto->MaGianHang,
-						$nguoidungDto->Username,
+						$nguoidungDto->UserName,
 						$nguoidungDto->HoTen,
 						$nguoidungDto->NgaySinh,
 						$nguoidungDto->GioiTinh,
@@ -209,20 +209,24 @@ class NguoiDungDAO extends ConnectDB {
 		return $lstNguoiDung;
 	}
 	
-	public  static  function LayThongTinNguoiDungTheoMa($nguoiDungDto)
+	/*
+	*	Lấy thông tin người dùng theo mã người dùng
+	*/
+	public  static  function LayThongTinNguoiDungTheoMa($maNguoiDung)
 	{
-		$lstThongTinNguoiDungTheoMa = array();
+		$nguoiDungDto = new NguoiDungDTO();
 		try {
 			if (!ConnectDB::OpenConnection())
 				return false;
 				
-			$strSQL = "select * from nguoi_dung where MaNguoiDung = $nguoiDungDto";
+			$strSQL = "select * from `nguoi_dung` where MaNguoiDung = $maNguoiDung";
 			$result = mysql_query($strSQL, ConnectDB::$mLink);			
-			if(!$result)
-				$lstThongTinNguoiDungTheoMa = array();
+			if(!$result || mysql_num_rows($result) <= 0)
+			{
+				return null;
+			}
 			while ($row = mysql_fetch_array($result))
 			{
-				$nguoiDungDto = new NguoiDungDTO();
 				$nguoiDungDto->MaNguoiDung = $row["MaNguoiDung"];
 				$nguoiDungDto->MaLoaiND = $row["MaLoaiND"];
 				$nguoiDungDto->MaGianHang = $row["MaGianHang"];
@@ -235,20 +239,121 @@ class NguoiDungDAO extends ConnectDB {
 				$nguoiDungDto->TinhTrang = $row["TinhTrang"];
 				$nguoiDungDto->AnhDaiDien = $row["AnhDaiDien"];
 				
-				array_push($lstThongTinNguoiDungTheoMa, $nguoiDungDto);		
 			}
 			ConnectDB::CloseConnection();				
 			
 		} catch (Exception $e) {
-			$lstThongTinNguoiDungTheoMa = array();
+			$nguoiDungDto = null;
 		}
-		return $lstThongTinNguoiDungTheoMa;
+		return $nguoiDungDto;
 	}
 	
-/**
-	 * Láº¥y danh sÃ¡ch ngÆ°á»�i dÃ¹ng theo tÃ¬nh tráº¡ng
-	 * ChÆ°a sá»­a thá»© tá»± param
-	 * @param unknown_type $nguoidungDto
+	/*
+	*	Lấy thông tin người dùng theo username
+	*/
+	public  static  function LayThongTinNguoiDungTheoTenTaiKhoan($TenTaiKhoan)
+	{
+		$nguoiDungDto = new NguoiDungDTO();
+		try {
+			if (!ConnectDB::OpenConnection())
+				return false;
+				
+			$strSQL = "select * from `nguoi_dung` where UserName = '$TenTaiKhoan'";
+			$result = mysql_query($strSQL, ConnectDB::$mLink);			
+			if(!$result || mysql_num_rows($result) <= 0)
+			{
+				return null;
+			}
+			while ($row = mysql_fetch_array($result))
+			{
+				$nguoiDungDto->MaNguoiDung = $row["MaNguoiDung"];
+				$nguoiDungDto->MaLoaiND = $row["MaLoaiND"];
+				$nguoiDungDto->MaGianHang = $row["MaGianHang"];
+				$nguoiDungDto->HoTen = $row["HoTen"];
+				$nguoiDungDto->GioiTinh = $row["GioiTinh"];
+				$nguoiDungDto->UserName = $row["UserName"];
+				$nguoiDungDto->DiaChi = $row["DiaChi"];
+				$nguoiDungDto->Email = $row["Email"];
+				$nguoiDungDto->MatKhau = $row["MatKhau"];
+				$nguoiDungDto->TinhTrang = $row["TinhTrang"];
+				$nguoiDungDto->AnhDaiDien = $row["AnhDaiDien"];
+				
+			}
+			ConnectDB::CloseConnection();				
+			
+		} catch (Exception $e) {
+			$nguoiDungDto = null;
+		}
+		return $nguoiDungDto;
+	}
+	/*
+	*	Lấy thông tin người dùng theo email
+	*/
+	public  static  function LayThongTinNguoiDungTheoEmail($email)
+	{
+		$nguoiDungDto = new NguoiDungDTO();
+		try {
+			if (!ConnectDB::OpenConnection())
+				return false;
+				
+			$strSQL = "select * from `nguoi_dung` where Email = '$email'";
+			$result = mysql_query($strSQL, ConnectDB::$mLink);			
+			if(!$result || mysql_num_rows($result) <= 0)
+			{
+				return null;
+			}
+			while ($row = mysql_fetch_array($result))
+			{
+				$nguoiDungDto->MaNguoiDung = $row["MaNguoiDung"];
+				$nguoiDungDto->MaLoaiND = $row["MaLoaiND"];
+				$nguoiDungDto->MaGianHang = $row["MaGianHang"];
+				$nguoiDungDto->HoTen = $row["HoTen"];
+				$nguoiDungDto->GioiTinh = $row["GioiTinh"];
+				$nguoiDungDto->UserName = $row["UserName"];
+				$nguoiDungDto->DiaChi = $row["DiaChi"];
+				$nguoiDungDto->Email = $row["Email"];
+				$nguoiDungDto->MatKhau = $row["MatKhau"];
+				$nguoiDungDto->TinhTrang = $row["TinhTrang"];
+				$nguoiDungDto->AnhDaiDien = $row["AnhDaiDien"];
+				
+			}
+			ConnectDB::CloseConnection();				
+			
+		} catch (Exception $e) {
+			$nguoiDungDto = null;
+		}
+		return $nguoiDungDto;
+	}
+	/*
+	*	Kiểm tra tên user & pass có trùng 
+	*/
+	public  static  function KiemTraDangNhap($tenTaiKhoan, $matKhau)
+	{
+		$res = false;
+		try {
+			if (!ConnectDB::OpenConnection())
+				return false;
+				
+			$strSQL = "select * from `nguoi_dung` where UserName = '$tenTaiKhoan' AND MatKhau = '$matKhau'";
+			$result = mysql_query($strSQL, ConnectDB::$mLink);	
+					
+			if(!$result || mysql_num_rows($result) <= 0)
+			{
+				$res = false;
+			}
+			if(mysql_num_rows($result) == 1)
+			{
+				$res = true;
+			}
+			ConnectDB::CloseConnection();				
+			
+		} catch (Exception $e) {
+			$res = false;
+		}
+		return $res;
+	}
+	/**
+	 * Lấy ds người dùng theo tình trạng
 	 */
 	public  static  function LayDanhSachNguoiDungTheoTinhTrang()
 	{
@@ -269,7 +374,7 @@ class NguoiDungDAO extends ConnectDB {
 				$nguoiDungDto->MaGianHang = $row["MaGianHang"];
 				$nguoiDungDto->HoTen = $row["HoTen"];
 				$nguoiDungDto->GioiTinh = $row["GioiTinh"];
-				$nguoiDungDto->Username = $row["Username"];
+				$nguoiDungDto->UserName = $row["UserName"];
 				$nguoiDungDto->DiaChi = $row["DiaChi"];
 				$nguoiDungDto->Email = $row["Email"];
 				$nguoiDungDto->MatKhau = $row["MatKhau"];
@@ -285,52 +390,5 @@ class NguoiDungDAO extends ConnectDB {
 		}
 		return $lstNguoiDung;
 	}
-	/**
-	 * Láº¥y ngÆ°á»�i dÃ¹ng theo mÃ£
-	 * ChÆ°a sá»­a thá»© tá»± param
-	 * @param unknown_type $nguoidungDto
-	 */
-	public  static  function LayNguoiDungTheoMa($UserName)
-	{
-		$nguoiDungDto = new NguoiDungDTO();
-		ConnectDB::OpenConnection();
-		try {
-			if (!ConnectDB::OpenConnection())
-				return;				
-			//$strSQL = sprintf("call spLayNguoiDungTheoMa(%d)",$maNguoiDung);
-			//$result = mysql_query($strSQL, ConnectDB::$mLink);
-			else
-			{
-				$strSQL = "select hoten, ngaysinh, gioitinh, diachi, matkhau, email, anhdaidien from nguoi_dung where UserName = '$UserName'";
-				$result = mysql_query($strSQL);
-				if(mysql_num_rows($result) == 1)
-				{					
-					$nguoiDungDto = new NguoiDungDTO();
-					while($row = mysql_fetch_array($result))
-					{
-						$nguoiDungDto->HoTen = $row["hoten"];
-						$nguoiDungDto->NgaySinh = $row["ngaysinh"];
-						$nguoiDungDto->GioiTinh = $row["gioitinh"];
-						$nguoiDungDto->DiaChi = $row["diachi"];
-						$nguoiDungDto->Email = $row["email"];
-						$nguoiDungDto->MatKhau = $row["matkhau"];
-						$nguoiDungDto->AnhDaiDien = $row["anhdaidien"];
-					}
-					$nguoiDungDto->NgaySinh = date("d-m-Y", strtotime($nguoiDungDto->NgaySinh));
-				}
-				else
-				{
-					echo "<script>alert('Lỗi hệ thống! Vui lòng thử lại');</script>";
-					echo "<meta http-equiv='refresh' content='3;url=http://localhost/%5BUDPT%5DDATH/index.php'/>";
-				}
-			}
-			ConnectDB::CloseConnection();				
-			
-		} catch (Exception $e) {
-			$nguoiDungDto = new NguoiDungDTO();
-		}
-		return $nguoiDungDto;
-	}
 }
-
 ?>

@@ -1,11 +1,13 @@
-<div class="paging">
-    <div class="item">                
-      <a href="#" class="item current">1</a> 
-      <a href="#" class="item">2</a>
+<div class="toolbox">
+    <div class="paging">
+        <div class="item">                
+          <a href="#" class="item current">1</a> 
+          <a href="#" class="item">2</a>
+        </div>
     </div>
 </div>
 <!--end .paging -->
-<div class="top-product">	
+<div class="list-product-wrapper">	
     <div class="top-list-product-wrapper">               	  
       <div class="top-list-product-title">  
       title                  

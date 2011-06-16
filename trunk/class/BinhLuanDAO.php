@@ -77,20 +77,23 @@ class BinhLuanDAO extends ConnectDB {
 	 */
 	public  static  function LayDSBL_TheoMaDoiTuong($maDoiTuong)
 	{
-		$binhLuanDto = new BinhLuanDTO();
+		$lstBinhLuan = array();		
 		try {
 			if (!ConnectDB::OpenConnection())
 				return false;
 				
-			$strSQL = sprintf("call spLayChiTietDDH_TheoMaDDH(%d)",$maDoiTuong);
+			//$strSQL = sprintf("call spLayChiTietDDH_TheoMaDDH(%d)",$maDoiTuong);
+			$strSQL = "SELECT * from Binh_Luan WHERE DoiTuongBL = $maDoiTuong;";
+			//echo $strSQL;
 			$result = mysql_query($strSQL, ConnectDB::$mLink);
-			if($result == false)
-			{
-				$binhLuanDto = new BinhLuanDTO();
-				return $binhLuanDto;
+			
+			if(!$result || mysql_num_rows($result) <= 0)
+			{				
+				return null;
 			}
 			while ($row = mysql_fetch_array($result) )
 			{
+				$binhLuanDto = new BinhLuanDTO();
 				
 				$binhLuanDto->MaBL = $row["MaBL"];
 				$binhLuanDto->NoiDungBL = $row["NoiDungBL"];
@@ -99,13 +102,15 @@ class BinhLuanDAO extends ConnectDB {
 				$binhLuanDto->DaXoa = $row["DaXoa"];
 				$binhLuanDto->NgayXoa = $row["NgayXoa"];
 				$binhLuanDto->DoiTuongBL = $row["DoiTuongBL"];
+				
+				array_push($lstBinhLuan, $binhLuanDto);
 			}
 			ConnectDB::CloseConnection();				
 			
 		} catch (Exception $e) {
-			$binhLuanDto = new BinhLuanDTO();
+			$lstBinhLuan = null;
 		}
-		return $binhLuanDto;
+		return $lstBinhLuan;
 	}
 
 }

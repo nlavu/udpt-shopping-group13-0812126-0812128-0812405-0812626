@@ -1,4 +1,4 @@
--upbody {
+body {
 	font-family:Tahoma, Geneva, sans-serif;
 	font-size:12px;
 	background: #FFF;
@@ -68,13 +68,13 @@ a:hover, a:active, a:focus{
 		/*background-color:#CCC;	*/
 		margin: 0px 5px;
 	}
-		.header-navigator{
+		.header .header-right .header-navigator{
 			margin: 0px 5px;
 			height: 30px;
 			text-align: right;			
 			/*background-color:#033;*/	
 		}
-		.search
+		.header .header-right .search
 		{
 			margin: 0px 5px;			
 			height: 30px;
@@ -90,21 +90,21 @@ a:hover, a:active, a:focus{
 .header-navigator li{
 	float:right;
 	padding:0px;
-	width: 70px;
+	min-width: 70px;
 }
 	.header-navigator li a{			
 		display:block;
 		font-weight:bold;
 		font-size: 11px;
 		line-height:25px;
-		width: 70px;
+		min-width: 70px;
 		margin:0px;
 		padding:0px;	
 		text-align:center;			
 		text-decoration:none;
 		color:#FFF;		
 	}
-		.header-navigator li a:hover{
+		.header .header-navigator li a:hover{
 			background:#639cc6;		
 			display:block;			
 			text-decoration:none;
@@ -114,7 +114,7 @@ a:hover, a:active, a:focus{
 /*login*/
 .login-wrapper{
 	width: 200px;
-	height: 180px;	
+	height: 190px;	
 	position: absolute;
 	left: 790px;
 	top: 25px;	
@@ -125,7 +125,7 @@ a:hover, a:active, a:focus{
 	.login-content{				
 		background:#FFF;
 		overflow: auto;
-		height: 165px;
+		height: 175px;
     	padding: 6px 0 0 6px;		
 		font-size: 11px;
 		text-align: left;
@@ -137,7 +137,7 @@ a:hover, a:active, a:focus{
 			float:left;							
 			padding: 0px 20px;
 			margin: auto;			
-			height: 35px;
+			height: 40px;
 			display: block;		
 		}
 		.pass-login
@@ -145,7 +145,7 @@ a:hover, a:active, a:focus{
 			float:left;			
 			padding: 0px 20px;
 			margin: auto;			
-			height: 35px;
+			height: 40px;
 		}
 		.remember{
 			float:left;
@@ -181,8 +181,6 @@ a:hover, a:active, a:focus{
     width:350px;
 	height: 18px;
 	float:left;	
-	color: #555555;
-	font-style:italic;
 	background:url(../image/search_24.png) no-repeat left;
 	background-color: #FFF;
     /*border: 1px solid #BBC8D1;
@@ -224,7 +222,6 @@ label {
 	padding: 0px;
 	width: 1000px;	
 	overflow:hidden;
-	/*background:#033;*/
 }
 	.content .content-left{
 		float: left;
@@ -251,8 +248,7 @@ label {
 		display: inline;
 		width: 265px;
 		margin: 10px 0px 10px 5px;		
-		border-left: 0px solid #B3B3B3;			
-		/*background: url(../image/bg_left_sidebar.png) repeat-x top;*/
+		border-left: 0px solid #B3B3B3;		
 	}
 /* ~~ This grouped selector gives the lists in the .content area space ~~ */
 .content ul, .content ol { 
@@ -260,7 +256,7 @@ label {
 }
 
 /* ~~ The footer ~~ */
-.footer {
+.footer{
 	padding: 0px;
 	background: #F9FcFD;	
 	clear: both;
@@ -311,6 +307,7 @@ input.style-blue {
 		width: 245px;
 		padding: 5px;
 		overflow:hidden;
+		background: #FFF;
 	}
 		.item-box-right-sidebar .title
 		{					
@@ -732,25 +729,7 @@ input.style-blue {
 	{
 		color: #000;
 	}
-/*link small*/
-.link-1-small{			
-	color: #555555;	
-	font-size: 11px;		
-}
-	.link-1-small a:hover{
-		text-decoration:underline;
-		color:#FF9c08;
-	}
-	
-.link-1-medium{			
-	color: #555555;	
-	font-size: 12px;		
-}
-	.link-1-medium a:hover{
-		text-decoration:underline;
-		color:#FF9c08;
-	}
-	
+
 /*tài khoản*/
 .account-wrapper{
 	width: 150px;
@@ -915,17 +894,6 @@ input.style-blue {
 	padding-right: 5px;
 	vertical-align:middle;
 	text-align: right;
-}
-/*TEXT */
-.text-color-normal-1{
-	color: #135485;
-	font-weight: normal;
-	font-size: 12px;
-}
-.text-color-bold-1{
-	color: #135485;
-	font-weight: bold;
-	font-size: 12px;
 }
 
 /*sign UP*/
@@ -1120,13 +1088,31 @@ input.style-blue {
 		.paging .item .current{
 			background:#F2F2F2;
 		}
-/*COPY from SHOP*/
+/**/
+/*link small*/
+.link-1-small{			
+	color: #555555;	
+	font-size: 11px;		
+}
+	.link-1-small a:hover{
+		text-decoration:underline;
+		color:#FF9c08;
+	}
+	
+.link-1-medium{			
+	color: #555555;	
+	font-size: 12px;		
+}
+	.link-1-medium a:hover{
+		text-decoration:underline;
+		color:#FF9c08;
+	}
 .text-color-normal-1,.text-color-normal-2{
 	color: #135485;
 	font-weight: normal;
 	font-size: 12px;
 }
-	.text-color-normal-1,.text-color-normal-2 a{
+	.text-color-normal-1 a,.text-color-normal-2 a{
 		color: #135485;
 		font-weight: normal;
 		font-size: 12px;
@@ -1142,8 +1128,7 @@ input.style-blue {
 	font-weight: normal;
 	font-size: 12px;
 }
-	.text-normal-1,.text-normal-2 a{
-		color: #555;
+	.text-normal-1 a,.text-normal-2 a{
 		font-weight: normal;
 		font-size: 12px;
 	}
@@ -1176,3 +1161,73 @@ input.style-blue {
 		font-weight: bold;
 		font-size: 12px;
 	}
+	
+/*chung*/
+input[type="text"], textarea {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #CCCCCC;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset;
+    padding: 3px;
+}
+.text-hinter-1{
+	font-size:12px;
+	color: #CCCCCC;
+}
+input[type="text"].sign-in{
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 0px solid #CCCCCC;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1) inset;
+    padding: 0px;
+}
+
+/*phân trang*/		
+
+.toolbox{
+	float:none;
+	width: 798px;
+	display:block;
+}
+.toolbox .button{
+	float:right;
+	width: 350px;
+	line-height: 18px;
+	color: #900;
+	text-align:right;
+}
+	.toolbox .button a{
+		line-height: 18px;
+		color: #D73022;
+		font-weight:bold;
+	}
+.paging{
+	float:left;
+	width: 388px;
+	height: 18px;
+	padding: 2px 0px 2px 20px;
+	background: #FFF;
+	color: #DDD;
+}
+
+	.paging .item{		
+		color:#000;
+		text-decoration: none;
+		font-size:11px;
+		font-weight:normal;
+		text-align:center;
+		width:20px;
+		height: 14px;
+		display: inline;
+	}
+	.paging .item a {
+		border: 1px solid #DDD;
+		color:#000;
+		text-decoration: none;	
+		display:inline-block;
+	}
+		.paging .item a:hover {
+			background:#F2F2F2;
+			text-decoration: none;	
+		}
+		.paging .item .current{
+			background:#F2F2F2;
+		}

@@ -11,7 +11,7 @@ class NguoiDungDTO {
 	public $MaNguoiDung;
 	public $MaLoaiND;
 	public $MaGianHang;
-	public $Username;
+	public $UserName;
 	public $HoTen;
 	public $NgaySinh;
 	public $GioiTinh;

@@ -1,3 +1,4 @@
+<?php require_once 'session.inc';?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -38,15 +39,9 @@
     <!--// trong gian hàng bỏ content-right-->
   </div>
   <!--end .content-->
-  <div class="footer">
-  	<?php require_once('controls/ucFooter_Shop.php') ?>
-  </div>
+   <?php require_once('controls/ucFooter_Shop.php') ?> 
   <!--end .footer-->
 </div>
 <!--end .wrapper-->
-<!--SCRIPT JWUERY-->
-  <?php require_once('controls/ucScriptJquery_Shop.php') ?>
-<!--END SCRIPT JWUERY-->
-<!--END SCRIPT JWUERY-->
 </body>
 </html>
