@@ -99,6 +99,12 @@
 		return true;		
 	}
 	
+	
+function re_capcha()
+{
+	location.href = 'dang_ky.php';
+}
+
 	function kttaogianhang()
 	{
 		

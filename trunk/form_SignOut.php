@@ -1,19 +1,11 @@
 <?php require_once 'session.inc';?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Shopping Online - Đăng Xuất</title>
-</head>
-
-<body>
 <?php
 
 	require_once('class/SanPhamDAO.php');
-	require_once('class/GianHangDAO.php');
-	
+	require_once('class/GianHangDAO.php');	
 	require_once('class/NguoiDungDAO.php');
-	session_start();
+	
+	//hủy session giỏ hàng
 	if (isset($_SESSION['GioHang']))
 	{
 		
@@ -42,18 +34,27 @@
 		{
 			$nguoiDung = new NguoiDungDAO();
 			$nguoiDung = NguoiDungDAO::LayNguoiDungTheoMa($_COOKIE['UserCookies']);
-			SanPhamDAO::CapNhatLuotXemCuaSanPham($lstSP[$i],$nguoiDung->MaNguoiDung);
-			
+			SanPhamDAO::CapNhatLuotXemCuaSanPham($lstSP[$i],$nguoiDung->MaNguoiDung);			
 
 		}
 		unset($_SESSION['LuotXemSanPham']);
 	}
-	if(isset($_SESSION['db_is_logged_in']))
-	{
-		unset($_SESSION['db_is_logged_in']);
-		setcookie('UserCookies',"",time() - 3600);
+	if($_SESSION['IsLogin'] > 0)
+	{		
+		//setcookie('UserCookies',"",time() - 3600);
+		$_SESSION['IsLogin'] = 0;
+		$_SESSION['IdUser'] = 0;
+		$_SESSION['UserName'] = "Khách";
+		$_SESSION['Authentication'] = 'Khach';
+		
+		$giohang = array();
+		$_SESSION['GioHang'] = $giohang;	
+		
+		$gianhang = array();
+		$_SESSION['LuotXemGianHang'] = $gianhang;
+			
+		$sanpham = array();
+		$_SESSION['LuotXemSanPham'] = $sanpham;
 	}
 	header('Location: index.php');
 ?>
-</body>
-</html>

@@ -13,20 +13,6 @@ function check_info_signIn()
 		return true;
 }
 
-function check_info_signUp()
-{
-	var username = document.getElementById("txtusername").value;
-	var password = document.getElementById("password").value;
-	var password_confirm = document.getElementById("passwordconfirm").value;
-	var email = document.getElementById("email").value;
-	var email_confirm = document.getElementById("emailconfirm").value;
-	var security_code = document.getElementById("security_code").value;
-}
-
-function re_capcha()
-{
-	location.href = 'dang_ky.php';
-}
 /*function verify_check()
 {
 	var checkbox = document.getElementById("cb_rules_agree").value;
