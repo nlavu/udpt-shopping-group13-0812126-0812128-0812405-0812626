@@ -21,6 +21,14 @@
 								<li><a href='trang_ca_nhan.php'>Chào ".$_SESSION['UserName'].",  </a></li>
 								";
 					}
+					//kiểm tra cookie
+					$userName = "";
+					$password = "";
+					if(isset($_COOKIE['UserNameCookies']) && isset($_COOKIE['PasswordCookies']))
+					{
+						$userName = $_COOKIE['UserNameCookies'];
+						$password = $_COOKIE['PasswordCookies'];
+					}
 				?>
                 <!--<li> <a href="trang_ca_nhan.php"><span id="btnViewTaiKhoan">Tài khoản</span></a></li>
                 <li><a href="ds_gian_hang.php">Gian hàng</a></li>                
@@ -32,16 +40,16 @@
               	 <form action="form_SignIn.php" method="post" onsubmit="return check_info_signIn();"> 
                	  <div class="username-login">
                             <label for="navbar_username">Thành Viên:</label><br />
-                            <input name="txtUserName" id="txtUserName" size="16" type="text" class="ui-widget-content"  /> 
+                            <?php echo '<input name="txtUserName" id="txtUserName" size="16" type="text" class="ui-widget-content" value="'.$userName.'" />'; ?>
                           </div>
                   <div class="pass-login">
                             <label for="navbar_password">Mật khẩu:</label><br />
-                            <input name="txtPassword" id="txtPassword" size="16" type="password" class="ui-widget-content"  />
+                            <?php echo '<input name="txtPassword" id="txtPassword" size="16" type="password" class="ui-widget-content" value="'.$password.'" />'; ?>
                          </div>                            
                   <div class="remember">
                             <label for="cb_cookieuser_navbar">
-                                <input name="cbCookieUser" id="cbCookieUser" class="cb_cookieuser_navbar" accesskey="c" tabindex="103" type="checkbox"> Tự động đăng nhập
-                            </label> 
+                                <input name="cbCookieUser" type="checkbox" class="cb_cookieuser_navbar" id="cbCookieUser" accesskey="c" tabindex="103" checked="checked"> Lưu mật khẩu
+                      </label> 
                           </div>
                           <div class="login-button">
 	                          <input value="Ðăng Nhập" type="submit" class="ui-widget ui-state-default "  name="btnLogin"/> 
