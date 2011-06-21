@@ -1,4 +1,17 @@
-<?php require_once 'session.inc';?>
+<?php require_once 'session.inc';
+// set cookies:
+if (isset($_REQUEST['cbCookieUser']))
+{
+	//echo "Cookie: ".$_POST['cbCookieUser'];
+	setcookie('UserNameCookies', $_POST["txtUserName"],time() + 2592000);
+	setcookie('PasswordCookies',$_POST["txtPassword"],time() + 2592000);
+}
+else
+{
+	setcookie('UserNameCookies', '', time() - 3600);
+	setcookie('PasswordCookies', '', time() - 3600);
+}
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -48,15 +61,8 @@
 				$_SESSION['IsLogin'] = true;
 				$_SESSION['IdUser'] = $nguoiDungDto->MaNguoiDung;
 				$_SESSION['UserName'] = $nguoiDungDto->UserName;	
-				$_SESSION['Authentication']	= $nguoiDungDto->MaLoaiND;	
-									
-				// set cookies:
-				if (isset($_POST['cbCookieUser']))
-				{
-					//echo "Cookie: ".$_POST['cbCookieUser'];
-					//setcookie('UserName',
-				}
-				//setcookie('UserCookies',$username,time() + 3600);
+				$_SESSION['Authentication']	= $nguoiDungDto->MaLoaiND;										
+				
 				$response = "								
 					<div class='standard_error'>
 						<form class='block vbform' method='post' action='#' name='postvarform'>
@@ -74,7 +80,6 @@
 						</form>
 					</div>
 							";
-				$response = "";
 							
 				//echo "<p align='center'  style='font:arial; color:#000; font-size:14px;'>Đăng nhập thành công! Đang chuyển hướng về trang chủ</p>";
 				if($nguoiDungDto->MaLoaiND == 3)
@@ -85,7 +90,7 @@
 				else
 				{				
 					echo $response;
-					//echo "<meta http-equiv='refresh' content='3;url=index.php'/>";
+					echo "<meta http-equiv='refresh' content='3;url=index.php'/>";
 				}
 				
 			}
